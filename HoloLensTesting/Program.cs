@@ -9,6 +9,8 @@ namespace HoloLensTesting
 {
     class Program
     {
+        private static Uri deviceIpAddress = new Uri("http://169.254.106.72/");
+
         static void Main(string[] args)
         {
             AutomateHoloLens();
@@ -22,7 +24,7 @@ namespace HoloLensTesting
         private static async Task AutomateHoloLens()
         {
             var manager =PerceptionSimulationManager.CreatePerceptionSimulationManager(
-                new SimulationStreamSinkFactory().CreateSimulationStreamSink());
+                new SimulationStreamSinkFactory(deviceIpAddress).CreateSimulationStreamSink());
 
             for (int i = 0; i < 5; i++)
             {
@@ -39,7 +41,7 @@ namespace HoloLensTesting
 
         private static void PlayRecordedFile()
         {
-            var recording = PerceptionSimulationManager.LoadPerceptionSimulationRecording(@"OpenBrowser.xef", new SimulationStreamSinkFactory());
+            var recording = PerceptionSimulationManager.LoadPerceptionSimulationRecording(@"OpenBrowser.xef", new SimulationStreamSinkFactory(deviceIpAddress));
 
             recording.Play();
         }
