@@ -58,9 +58,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <Content Include="OpenBrowser.xef">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="C:\Program Files %28x86%29\Microsoft XDE\10.0.11082.0\PerceptionSimulationManager.dll">
